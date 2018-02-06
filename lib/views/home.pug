@@ -16,23 +16,23 @@ block content
   form.container(action='/ticket' method='POST')
     .form-group#ticket-form
       .form-group.row
-        label.col-sm-2.col-form-label(type='text', for='inputGasStation') Gas station
+        label.col-sm-2.col-form-label(type='text', for='inputStationName') Gas station
         .col-sm-10
-          input#inputGasStation.form-control(type='text', placeholder='Enter the gas station')
+          input#inputStationName.form-control(name="inputStationName", type='text', placeholder='Enter the gas station')
 
       .form-group.row
         label.col-sm-2.col-form-label(for='inputCar') Car
         .col-sm-10
-          input#inputCar.form-control(type='text', placeholder='Enter your car')
+          input#inputCar.form-control(name="inputCar", type='text', placeholder='Enter your car')
 
       .form-group.row
         label.col-sm-2.col-form-label(for='inputLicensePlate') License Plate
         .col-sm-10
-          input#inputLicensePlate.form-control(type='text', placeholder='Enter the license plate')
+          input#inputLicensePlate.form-control(name="inputLicensePlate", type='text', placeholder='Enter the license plate')
 
       .form-group.row
         label.col-sm-2.col-form-label(for='inputFuelType') Fuel type
-        //-input#inputFuelType.form-control(type='text', placeholder='Enter the fuel type')
+        //-input#inputFuelType.form-control(name="inputFuelType", type='text', placeholder='Enter the fuel type')
         .col-sm-10
           select#inputFuelType.form-control
             option Super 95
@@ -43,11 +43,11 @@ block content
       .form-group.row
         label.col-sm-2.col-form-label(for='inputPrice') Price
         .col-sm-10
-          input#inputPrice.form-control(type='text', placeholder='Enter the price')
+          input#inputPrice.form-control(name="inputPrice", type='text', placeholder='Enter the price')
 
       .form-group.row
         label.col-sm-2.col-form-label(for='inputQuantity') Quantity
         .col-sm-10
-          input#inputQuantity.form-control(type='text', placeholder='Enter the quantity (liters)')
+          input#inputQuantity.form-control(name="inputQuantity", type='text', placeholder='Enter the quantity (liters)')
 
       button.btn.btn-primary(type='submit' value="Submit") Submit
