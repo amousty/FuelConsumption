@@ -1,20 +1,53 @@
 extends layout
 
 block content
-  header(container)
-    h1 Tickets Board
-
-    nav
-      ul
-        li: a(href='#ticket-form' rel='modal:open') Publish
+  header(container).container
+    .jumbotron
+      h1 Tickets Board
+      span My list
+      //-nav
+        //-ul
+          //-li: a(href='#ticket-form' rel='modal:open') Publish
 
   main(container).tickets-list
     each ticket in data.tickets
       include components/ticket
 
-  form(action='/ticket' method='POST').form-control#ticket-form
-    p: input(class='form-control' type='text' placeholder='Gas station')
-    p: input(name='ticketTitle' type='text' placeholder='Title…')
-    p: input(name='ticketDescription' type='text' placeholder='Short description…')
-    p: textarea(name='ticketContent') Write here the content of the new ticket…
-    p._text-right: input(type='submit' class='btn' value='Submit')
+  form.container(action='/ticket' method='POST')
+    .form-group#ticket-form
+      .form-group.row
+        label.col-sm-2.col-form-label(type='text', for='inputGasStation') Gas station
+        .col-sm-10
+          input#inputGasStation.form-control(type='text', placeholder='Enter the gas station')
+
+      .form-group.row
+        label.col-sm-2.col-form-label(for='inputCar') Car
+        .col-sm-10
+          input#inputCar.form-control(type='text', placeholder='Enter your car')
+
+      .form-group.row
+        label.col-sm-2.col-form-label(for='inputLicensePlate') License Plate
+        .col-sm-10
+          input#inputLicensePlate.form-control(type='text', placeholder='Enter the license plate')
+
+      .form-group.row
+        label.col-sm-2.col-form-label(for='inputFuelType') Fuel type
+        //-input#inputFuelType.form-control(type='text', placeholder='Enter the fuel type')
+        .col-sm-10
+          select#inputFuelType.form-control
+            option Super 95
+            option Super 98
+            option Diesel
+            option LPG
+
+      .form-group.row
+        label.col-sm-2.col-form-label(for='inputPrice') Price
+        .col-sm-10
+          input#inputPrice.form-control(type='text', placeholder='Enter the price')
+
+      .form-group.row
+        label.col-sm-2.col-form-label(for='inputQuantity') Quantity
+        .col-sm-10
+          input#inputQuantity.form-control(type='text', placeholder='Enter the quantity (liters)')
+
+      button.btn.btn-primary(type='submit' value="Submit") Submit
