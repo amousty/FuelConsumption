@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  header(container)
+    h1 Tickets Board
+
+    nav
+      ul
+        li: a(href='#ticket-form' rel='modal:open') Publish
+
+  main(container).tickets-list
+    each ticket in data.tickets
+      include components/ticket
+
+  form(action='/ticket' method='POST').form-control#ticket-form
+    p: input(class='form-control' type='text' placeholder='Gas station')
+    p: input(name='ticketTitle' type='text' placeholder='Title…')
+    p: input(name='ticketDescription' type='text' placeholder='Short description…')
+    p: textarea(name='ticketContent') Write here the content of the new ticket…
+    p._text-right: input(type='submit' class='btn' value='Submit')
